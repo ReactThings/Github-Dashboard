@@ -4,17 +4,13 @@
 - src/App.js (where we learnt to send a GET request to GitHub API)
 
 ## Things we copied
+0:30 - the 5 GitHub API URLs we need:
+- https://api.github.com/users/*user name*
+- https://api.github.com/users/*user name*/repos
+- https://api.github.com/users/*user name*/events
+- https://api.github.com/users/*user name*/followers
+- https://api.github.com/users/*user name*/following
 
-0:47 - To install Axios, type the following into your terminal ([source](https://github.com/axios/axios)):
-```
-npm install --save axios
-```
+1:43 - Link to the [JSONView Chrome Extension](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)
 
-1:50 - To get a single user from GitHub, type the following into your browser:
-```
-https://api.github.com/users/*your user name*
-```
-
-## Further Reading:
-- [GitHub API](https://developer.github.com/v3/)
-  * [Getting a single user](https://developer.github.com/v3/users/#get-a-single-user)
+10:10 - Link to the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
