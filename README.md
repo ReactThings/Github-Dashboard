@@ -1,98 +1,78 @@
 # Complete React Course for Creating Amazing UI
 
 ## Files we changed
-- package.json and package-lock.json (due to the npm installation)
-- src/App.js (where we created the basic layout)
+- src/App.js (where we added <Profile/>)
+- src/App.css (where we styled our page)
+- src/components/Profile.js (where we created the profile page)
 
 ## Things we copied
-0:25 - To install Ant Design Library, type the following into your terminal ([source](https://ant.design/docs/react/introduce)):
+1:00 - The 3-column <Card> sample code ([source](https://ant.design/components/card/)):
 ```
-npm install antd --save
+<div style={{ background: '#ECECEC', padding: '30px' }}>
+  <Row gutter={16}>
+    <Col span={8}>
+      <Card title="Card title" bordered={false}>Card content</Card>
+    </Col>
+    <Col span={8}>
+      <Card title="Card title" bordered={false}>Card content</Card>
+    </Col>
+    <Col span={8}>
+      <Card title="Card title" bordered={false}>Card content</Card>
+    </Col>
+  </Row>
+</div>
 ```
-
-0:35 - Import Ant Design Style in src/App.js ([source](https://ant.design/docs/react/introduce)):
+and the import line:
 ```
-import 'antd/dist/antd.css';
-```
-
-1:54 - We copied Ant Design's <Layout> code sample ([source](https://ant.design/components/layout/)):
-```
-<Layout>
-  <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
-    <div className="logo" />
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-      <Menu.Item key="1">
-        <Icon type="user" />
-        <span className="nav-text">nav 1</span>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <Icon type="video-camera" />
-        <span className="nav-text">nav 2</span>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <Icon type="upload" />
-        <span className="nav-text">nav 3</span>
-      </Menu.Item>
-      <Menu.Item key="4">
-        <Icon type="bar-chart" />
-        <span className="nav-text">nav 4</span>
-      </Menu.Item>
-      <Menu.Item key="5">
-        <Icon type="cloud-o" />
-        <span className="nav-text">nav 5</span>
-      </Menu.Item>
-      <Menu.Item key="6">
-        <Icon type="appstore-o" />
-        <span className="nav-text">nav 6</span>
-      </Menu.Item>
-      <Menu.Item key="7">
-        <Icon type="team" />
-        <span className="nav-text">nav 7</span>
-      </Menu.Item>
-      <Menu.Item key="8">
-        <Icon type="shop" />
-        <span className="nav-text">nav 8</span>
-      </Menu.Item>
-    </Menu>
-  </Sider>
-  <Layout style={{ marginLeft: 200 }}>
-    <Header style={{ background: '#fff', padding: 0 }} />
-    <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-      <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-        ...
-        <br />
-        Really
-        <br />...<br />...<br />...<br />
-        long
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />...
-        <br />...<br />...<br />...<br />...<br />...<br />
-        content
-      </div>
-    </Content>
-    <Footer style={{ textAlign: 'center' }}>
-      Ant Design ©2016 Created by Ant UED
-    </Footer>
-  </Layout>
-</Layout>
+import { Card, Col, Row } from 'antd';
 ```
 
-5:50 - ([source](https://ant.design/components/icon/))
+3:15 - The <List> component ([source](https://ant.design/components/list/)):
 ```
-<Icon type="book" />
+<List
+  itemLayout="horizontal"
+  dataSource={data}
+  renderItem={item => (
+    <List.Item>
+      <List.Item.Meta
+        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+        title={<a href="https://ant.design">{item.title}</a>}
+        description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+      />
+    </List.Item>
+  )}
+/>
+```
+The dummy data:
+```
+const data = [
+  {
+    title: 'Ant Design Title 1',
+  },
+  {
+    title: 'Ant Design Title 2',
+  },
+  {
+    title: 'Ant Design Title 3',
+  },
+  {
+    title: 'Ant Design Title 4',
+  },
+];
+```
+And the import line:
+```
+import { List, Avatar } from 'antd';
 ```
 
-## Type Alert!
-3:40 - A made a mistake by defining two style props in the same component like so:
+5:04 - [Pagination Configurations Docs](https://ant.design/components/pagination/)
+
+7:20 - Large square avatar code snippet ([source](https://ant.design/components/avatar/)):
 ```
-<Layout style={{ marginLeft: 200 }} style={{height: '100vh'}}>
+<Avatar shape="square" size="large" icon="user" />
 ```
-It should have been:
+
+13:43 - Spin component ([source](https://ant.design/components/spin/)):
 ```
-<Layout style={{ marginLeft: 200, height: '100vh' }}>
+<Spin />
 ```
-In that case, we wouldn't have to delete the `position: "fixed"` and `left: 0` properties from the <Sider> component.

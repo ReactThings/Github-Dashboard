@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
+import Profile from './components/Profile';
 import 'antd/dist/antd.css';
 import './App.css';
 
@@ -114,8 +115,15 @@ class App extends Component {
         <Layout style={{ marginLeft: 200, height: '100vh' }}>
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-            <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-              content
+            <div style={{ padding: 24, background: '#fff'}}>
+
+              <Profile
+                user_data={this.state.user_data}
+                events_data={this.state.events_data}
+                followers_data={this.state.followers_data}
+                following_data={this.state.following_data}
+              />
+
             </div>
           </Content>
           <Footer>
