@@ -14,7 +14,7 @@ const columns = [{
   title: 'Description',
   dataIndex: 'description',
   key: 'description',
-}];
+},];
 
 class Repo extends Component {
 
@@ -35,7 +35,7 @@ class Repo extends Component {
 }
 
 Repo.defaultProps = {
-  repo_data: []
+  repo_data: [],
 }
 
 export default Repo;
