@@ -5,6 +5,13 @@ import './App.css';
 import axios from 'axios';
 
 class App extends Component {
+  componentDidMount(){
+      axios.get('https://api.github.com/users/donfour').then(response => {
+        console.log(response);
+      }).catch(error => {
+        console.log(error);
+      })
+  }
   render() {
     return (
       <div className="App">
