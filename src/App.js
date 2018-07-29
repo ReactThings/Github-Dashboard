@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Layout, Menu, Icon } from 'antd';
+import 'antd/dist/antd.css';
 import './App.css';
 
 import axios from 'axios';
+
+const { Header, Content, Footer, Sider } = Layout;
 
 class App extends Component {
   state = {
@@ -93,15 +96,33 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Layout>
+        <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
+          <div className="logo" />
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} style={{marginTop: '60px'}}>
+            <Menu.Item key="1">
+              <Icon type="user" />
+              <span className="nav-text">Profile</span>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Icon type="book" />
+              <span className="nav-text">All Repositories</span>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+
+        <Layout style={{ marginLeft: 200, height: '100vh' }}>
+          <Header style={{ background: '#fff', padding: 0 }} />
+          <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+            <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+              content
+            </div>
+          </Content>
+          <Footer>
+          </Footer>
+        </Layout>
+
+      </Layout>
     );
   }
 }
