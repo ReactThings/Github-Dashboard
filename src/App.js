@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import Profile from './components/Profile';
+import Repo from './components/Repo';
 import 'antd/dist/antd.css';
 import './App.css';
-
+import { Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -102,12 +103,16 @@ class App extends Component {
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} style={{marginTop: '60px'}}>
             <Menu.Item key="1">
-              <Icon type="user" />
-              <span className="nav-text">Profile</span>
+              <Link to='/'>
+                <Icon type="user" />
+                <span className="nav-text">Profile</span>
+              </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="book" />
-              <span className="nav-text">All Repositories</span>
+              <Link to='/repo'>
+                <Icon type="book" />
+                <span className="nav-text">All Repositories</span>
+              </Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -116,13 +121,29 @@ class App extends Component {
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             <div style={{ padding: 24, background: '#fff'}}>
-
-              <Profile
-                user_data={this.state.user_data}
-                events_data={this.state.events_data}
-                followers_data={this.state.followers_data}
-                following_data={this.state.following_data}
-              />
+              <Switch>
+                <Route
+                  exact
+                  path='/'
+                  render={() =>
+                    <Profile
+                      user_data={this.state.user_data}
+                      events_data={this.state.events_data}
+                      followers_data={this.state.followers_data}
+                      following_data={this.state.following_data}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path='/repo'
+                  render={() =>
+                    <Repo
+                      repo_data={this.state.repo_data}
+                    />
+                  }
+                />
+              </Switch>
 
             </div>
           </Content>
